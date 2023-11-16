@@ -4,10 +4,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @DiscriminatorValue("M")
 @Getter
+@SuperBuilder
 public class Movie extends Item{
     
     private String director;

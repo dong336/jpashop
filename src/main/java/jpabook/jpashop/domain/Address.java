@@ -3,10 +3,12 @@ package jpabook.jpashop.domain;
 import javax.persistence.Embeddable;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 @Embeddable
 @Getter
+@Builder
 @AllArgsConstructor
 public class Address {
     

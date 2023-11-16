@@ -10,10 +10,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Getter
+@Builder
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member {
     
     @Id @GeneratedValue
@@ -25,6 +32,7 @@ public class Member {
     @Embedded
     private Address address;
 
+    @Builder.Default
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }
