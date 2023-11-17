@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import java.util.List;
 
+import jpabook.jpashop.domain.item.Book;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,17 @@ public class ItemService {
     @Transactional
     public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    @Transactional
+    public void updateItem(Long itemId, int price, String name, int stockQuantity) {
+        Item findItem = itemRepository.findOne(itemId);
+
+        // 변경지점을 엔티티 메서드로 캡슐화 할 것
+        findItem.setPrice(price);
+        findItem.setName(name);
+        findItem.setStockQuantity(stockQuantity);
+        // 영속성 엔티티 변경감지, 커밋 시점에 flush, 디비에 변경을 반영
     }
 
     public List<Item> findItems() {

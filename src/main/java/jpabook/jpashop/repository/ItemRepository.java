@@ -1,25 +1,25 @@
 package jpabook.jpashop.repository;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
-import org.springframework.stereotype.Repository;
-
 import jpabook.jpashop.domain.item.Item;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class ItemRepository {
-    
+
     private final EntityManager em;
 
     public void save(Item item) {
-        if(item.getId() == null) {
+        if (item.getId() == null) {
             em.persist(item);
         } else {
-            em.merge(item);
+            Item merge = em.merge(item);
+            // merge 는 영속성에서 관리된다
+            // item 은 준영속성 엔티티 (관리하지 않음)
         }
     }
 
@@ -28,10 +28,7 @@ public class ItemRepository {
     }
 
     public List<Item> findAll() {
-        return em.createQuery("""
-            select i
-            from Item i
-        """, Item.class)
-            .getResultList();
+        return em.createQuery("select i from Item i", Item.class)
+                .getResultList();
     }
 }
