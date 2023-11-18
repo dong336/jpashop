@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.repository.OrderSearch;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,8 @@ import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -30,9 +33,9 @@ public class OrderService {
         Item item = itemRepository.findOne(itemId);
 
         // 배송정보
-        Delivery delivery = Delivery.builder()
-            .address(member.getAddress())
-            .build();
+        Delivery delivery = new Delivery();
+
+        delivery.setAddress(member.getAddress());
 
         // 주문상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
@@ -57,7 +60,7 @@ public class OrderService {
     }
 
     // 검색
-    // public List<Order> findOrders(OrderSearch orderSearch) {
-
-    // }
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 }
