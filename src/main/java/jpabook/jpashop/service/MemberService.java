@@ -41,4 +41,14 @@ public class MemberService {
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
     }
+
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id);
+
+        member.setName(name);
+
+        // 영속상태의 객체가 변경되고 트랜잭션 종료하고 커밋될 때
+        // db에 영속성 객체의 변경이 반영된다 -> 변경감지 flush, commit
+    }
 }
