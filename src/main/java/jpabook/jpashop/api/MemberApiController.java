@@ -1,13 +1,13 @@
 package jpabook.jpashop.api;
 
-import jpabook.jpashop.api.dto.*;
-import jpabook.jpashop.api.dto.common.Result;
+import jakarta.validation.Valid;
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.dto.*;
+import jpabook.jpashop.dto.common.Result;
 import jpabook.jpashop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController

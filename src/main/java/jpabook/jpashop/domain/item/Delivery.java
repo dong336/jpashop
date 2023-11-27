@@ -1,23 +1,15 @@
 package jpabook.jpashop.domain.item;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Order;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import static javax.persistence.FetchType.LAZY;
+import static jakarta.persistence.FetchType.*;
+
 
 @Entity
 @Getter @Setter

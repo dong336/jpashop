@@ -1,10 +1,10 @@
 package jpabook.jpashop.repository.query;
 
-import jpabook.jpashop.api.dto.SimpleOrderQueryDto;
+import jakarta.persistence.EntityManager;
+import jpabook.jpashop.dto.SimpleOrderQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository

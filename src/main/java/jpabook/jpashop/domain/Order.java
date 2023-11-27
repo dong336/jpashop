@@ -1,11 +1,11 @@
 package jpabook.jpashop.domain;
 
+import jakarta.persistence.*;
 import jpabook.jpashop.domain.item.Delivery;
 import jpabook.jpashop.domain.item.DeliveryStatus;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,5 +1,7 @@
 package jpabook.jpashop;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.persistence.EntityManager;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
@@ -10,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
 
 @Component
 @RequiredArgsConstructor

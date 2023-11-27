@@ -1,4 +1,4 @@
-package jpabook.jpashop.api.dto.common;
+package jpabook.jpashop.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Result<T>{
-    private T data;
+public class UpdateMemberRequest{
+    private String name;
 }

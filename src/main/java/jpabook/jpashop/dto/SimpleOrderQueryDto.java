@@ -1,4 +1,4 @@
-package jpabook.jpashop.api.dto;
+package jpabook.jpashop.dto;
 
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.OrderStatus;
