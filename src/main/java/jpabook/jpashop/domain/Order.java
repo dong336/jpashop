@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id")
     private Long id;
 
@@ -39,6 +39,7 @@ public class Order {
     private LocalDateTime orderDate; // 주문시간
 
     @Enumerated(EnumType.STRING)
+    @Column(length = 20)
     private OrderStatus status; // ORDER, CANCEL
 
     // 양방향 연관관계 상 필요한 편의메서드

@@ -10,11 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "member", indexes = {
+        @Index(name = "IDX_MEMBER1", columnList = "name"),
+        @Index(name = "IDX_MEMBER2", columnList = "city")
+})
 @Getter @Setter
 @NoArgsConstructor
 public class Member {
     
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "member_id")
     private Long id;
 
